@@ -3,7 +3,7 @@ name: keeplive
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 13 1,15 * *'
+    - cron: 0 13 1,15 * *
 
 jobs:
   keeplive:
@@ -22,3 +22,6 @@ jobs:
         git commit -m "Update keeplive" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: master

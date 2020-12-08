@@ -11,15 +11,15 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
-    - name: Update keeplive.txt
+    - name: Update keeplive
       run: | 
-        echo "$(date)" > keeplive.txt
+        echo "$(date)" > keeplive
     - name: Commit
       run: | 
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add -A
-        git commit -m "Update keeplive.txt" -a
+        git add keeplive
+        git commit -m "Update keeplive" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
